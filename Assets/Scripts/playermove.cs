@@ -30,11 +30,19 @@ public class playermove : MonoBehaviour
             anim.SetBool("Leftwalk",true);
             xVelocity=-speed;
         }
+        else
+        {
+            anim.SetBool("Leftwalk", false);
+        }
 
         if (Input.GetKey(KeyCode.RightArrow))
         {
             anim.SetBool("Rightwalk", true);
             xVelocity=speed;
+        }
+        else
+        {
+            anim.SetBool("Rightwalk", false);
         }
 
         if (Input.GetKey(KeyCode.UpArrow))
@@ -42,20 +50,28 @@ public class playermove : MonoBehaviour
             anim.SetBool("Upwalk", true);
             yVelocity=speed;
         }
+        else
+        {
+           anim.SetBool("Upwalk", false); 
+        }
 
         if (Input.GetKey(KeyCode.DownArrow))
         {
             anim.SetBool("Downwalk", true);
             yVelocity=-speed;
         }
-
-        if ((xVelocity == 0) && (yVelocity == 0))
+        else
         {
             anim.SetBool("Downwalk", false);
-            anim.SetBool("Upwalk", false);
-            anim.SetBool("Leftwalk", false);
-            anim.SetBool("Rightwalk", false);
         }
+
+        //if ((xVelocity == 0) && (yVelocity == 0))
+       // {
+       //     anim.SetBool("Downwalk", false);
+       //     anim.SetBool("Upwalk", false);
+       //     anim.SetBool("Leftwalk", false);
+       //     anim.SetBool("Rightwalk", false);
+       // }
 
         rb.velocity = new Vector2(xVelocity, yVelocity);
         
