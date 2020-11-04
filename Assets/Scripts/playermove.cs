@@ -22,7 +22,7 @@ public class playermove : MonoBehaviour
     {
         float xVelocity = 0;
         float yVelocity = 0;
-        float speed = 5; 
+        float speed = 2.5f; 
         
 
         if (Input.GetKey(KeyCode.LeftArrow))
@@ -63,6 +63,59 @@ public class playermove : MonoBehaviour
         else
         {
             anim.SetBool("Downwalk", false);
+        }
+
+        if((xVelocity>0)&&(yVelocity>0))
+        {
+        
+    
+            anim.SetBool("Upwalk", false);
+            anim.SetBool("Rightwalk", false);
+            anim.SetBool("uprightwalk",true);
+        
+        }
+        else
+        {
+            anim.SetBool("uprightwalk",false);
+        }
+
+        if((xVelocity<0)&&(yVelocity>0))
+        {
+            
+            anim.SetBool("Upwalk", false);
+            anim.SetBool("Leftwalk", false);
+            anim.SetBool("upleftwalk",true);
+           
+        }
+        else
+        {
+            anim.SetBool("upleftwalk",false);
+        }
+
+        if(xVelocity>0&&yVelocity<0)
+        {
+        
+            anim.SetBool("Downwalk", false);
+            anim.SetBool("Rightwalk", false);
+            anim.SetBool("downrightwalk",true);
+            
+        }
+        else
+        {
+            anim.SetBool("downrightwalk",false);
+        }
+
+        if(xVelocity<0&&yVelocity<0)
+        {
+        
+            anim.SetBool("Downwalk", false);
+            anim.SetBool("Leftwalk", false);
+            anim.SetBool("downleftwalk",true);
+            
+        }
+        else
+        {
+            anim.SetBool("downleftwalk",false);
         }
 
         //if ((xVelocity == 0) && (yVelocity == 0))
